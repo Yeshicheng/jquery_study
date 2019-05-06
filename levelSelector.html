@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery层次选择器</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#bt1").click(function(){
+			$("#foot span").css("background-color","red")
+								  })
+		$("#bt2").click(function(){
+			$("#foot>span").css("font-size","30px").css("font-weight","bold");
+		})
+		$("#bt3").click(function(){
+			$("h2+dl").css("background-color","grey");
+		})
+		$("#bt4").click(function(){
+			$("h2~dl").css("background-color","blue")
+			
+		})
+	})
+	
+	</script>
+</head>
+
+<body>
+	
+	<header>jquery选择器——层次选择器</header>
+	<h3>整理</h3>
+	<h4>后代选择器</h4>
+	<li>格式：$("外层选择器 内层选择器")</li>
+	<li>PS:$("#foot span").css("background-color","red")
+</li>
+	<h4>子选择器</h4>
+	<li>格式：$("父选择器>子选择器")</li>
+	<li>PS:$("#foot>span").css("font-size","30px");
+</li>
+	<h4>相邻选择器</h4>
+	<li>格式：$("选择器A+选择器B")==获取并紧接在选择器A选中元素后的选择器B选中元素</li>
+	<li>PS: $("h2+dl").css("background-color","grey");
+</li>
+	<h4>交集选择器</h4>
+	<li>格式：$("标签名.类名")==表示选中同时满足标签选择器和类选择器条件的对象</li>
+	<li>PS:	$("header.selectortest").css({"font-size":"38px","font-weight":"bold"})</li>
+	<h4>同辈选择器</h4>
+	<li>格式：$("选择器A~选择器B")==表示选中获取并选择器A所选元素之后的所有同辈的选择器B所选的元素<dl</li>
+	<li>PS:	$("h2~dl").css("background-color","blue")
+</li>
+	
+	<br>
+<br><br>
+<h2>示例</h2>
+	<input type="button" id="bt1" value="点击设置使用后代选择器选取的对象样式#foot span，背景设置为红色"/><br>
+	<input type="button" id="bt2" value="点击设置使用后代选择器选取的对象样式#foot>span,字体变大"/><br>
+	<input type="button"  id="bt3" value="点击设置使用后代选择器选取的对象样式h2+dl，设置背景颜色为灰色"/><br>
+	<input type="button" id="bt4" value="点击设置使用后代选择器选取的对象样式h2~dl,设置背景颜色为蓝色"/><br>
+	<div id="foot">
+		<h2>ID:foot>h2元素</h2>
+		<dl>
+			<dt>ID：foot>dl>dt元素<span>ID：foot>dl>dt>span元素</span></dt>
+			<dd><a href="#">ID：foot>dl>dd>a元素11111</a> <br>
+<a href="#">ID：foot>dl>dd>a元素2222</a> <br>
+<a href="#">ID：foot>dl>dd>a元素3333</a></dd>
+		</dl>
+		<dl>
+			<dt>ID：foot>dl>dt元素</dt>
+			<dd><a href="#">ID：foot>dl>dd>a元素11111</a><br>
+ <a href="#">ID：foot>dl>dd>a元素2222</a><br>
+ <a href="#">ID：foot>dl>dd>a元素3333</a></dd>
+			<dd><a href="#">ID：foot>dl>dd>a元素44444</a> <br>
+<a href="#">ID：foot>dl>dd>a元素55555</a></dd>
+		</dl>
+		<span>更多分类</span>
+	</div>
+	
+	
+</body>
+</html>

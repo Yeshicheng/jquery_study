@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>jQuery属性选择器示例</title>
+<style type="text/css">
+#box {background-color:#FFF; border:2px solid #000; padding:5px;}
+</style>
+<script type="text/javascript"  src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+/*	 $("h3").click(function(){
+		// 改变含有title属性的<div>元素的背景颜色
+		 //$("div[cartoonBox]").css("background-color","#09F")
+		// 改变class属性的值为odds的元素的背景颜色
+		//  $("[class=odds]").css("background-color","#09F");
+		 //改变id属性的值不为box的元素的背景颜色
+		 // $("[id!=box]").css("background-color","#09F");
+		// 改变title属性的值中以h开头的元素的背景颜色
+		//  $("[title^=h]").css("background-color","#09F");
+		 //改变title属性的值中以jp结尾的元素的背景颜色
+		// $("[title$=jp]").css("background-color","#09F");
+		  //改变title属性的值中含有s的元素的背景颜色
+		// $("[title*=y]").css("background-color","#09F");
+		// 改变包含class属性值为odds，且title属性的值中含有y的<li>元素的背景颜色
+		  $("li[class=odds][title*=y]").css("background-color","#09F");
+	 });*/
+	
+	$("#btn1").click(function(){
+		$("[title]").css("background-color","red")
+	})
+	$("#btn2").click(function(){
+		$("[class=odds]").css("background-color","orange")
+	})
+	$("#btn3").click(function(){
+		$("[id!=box]").css("background-color","yellow")
+	})
+	$("#btn4").click(function(){
+		$("[title^=h]").css("background-color","green")
+	})
+	$("#btn5").click(function(){
+		$("[title$=jp]").css("background-color","blue");
+	})
+	$("#btn6").click(function(){
+		$("[title*=y]").css("background-color","purple");
+	})
+	$("#btn7").click(function(){
+		$("li[class=odds][title*=y]").css("background-color","gray");
+	})
+});
+</script>
+</head>
+<body>
+	
+	<table width="1000px" border="1" style="margin: 0px auto">
+  <caption>
+    属性选择器
+  </caption>
+  <tbody>
+    <tr>
+      <td>$("div[title]").css("background-color","red")</td>
+      <td>&改变含有title属性的<div>元素的背景颜色;</td>
+      <td><input type="button" id="btn1" value="点击触发样式改变"/></td>
+    </tr>
+    <tr>
+      <td>$("[class=odds]").css("background-color","orange")</td>
+      <td> 改变class属性的值为odds的元素的背景颜色</td>
+      <td><input type="button" id="btn2" value="点击触发样式改变"/></td>
+    </tr>
+	  <tr>
+      <td>$("[id!=box]").css("background-color","yellow")</td>
+      <td>改变id属性的值不为box的元素的背景颜色</td>
+      <td><input type="button" id="btn3" value="点击触发样式改变"/></td>
+    </tr>
+	  <tr>
+      <td>$("[title^=h]").css("background-color","green")</td>
+      <td>改变title属性的值中以h开头的元素的背景颜色</td>
+      <td><input type="button" id="btn4" value="点击触发样式改变"/></td>
+    </tr>
+	  <tr>
+      <td>$("[title$=jp]").css("background-color","blue");</td>
+      <td>改变title属性的值中以jp结尾的元素的背景颜色</td>
+      <td><input type="button" id="btn5" value="点击触发样式改变"/></td>
+    </tr>
+	  <tr>
+      <td>$("[title*=y]").css("background-color","#09F")</td>
+      <td>改变title属性的值中含有y的元素的背景颜色</td>
+      <td><input type="button" id="btn6" value="点击触发样式改变"/></td>
+    </tr>
+	  <tr>
+      <td>$("li[class=odds][title*=y]").css("background-color","gray");</td>
+      <td> 改变包含class属性值为odds，且title属性的值中含有y的li元素的背景颜色</td>
+      <td><input type="button" id="btn7" value="点击触发样式改变"/></td>
+    </tr>
+	
+  </tbody>
+</table>
+
+
+	<h2>外面的动画列表==h2</h2>
+	<div id="box">
+		<h2 title="cartoonlist">动画列表==div>h2</h2>
+		<ul>
+			<li class="odds"  title="kn_jp">名侦探柯南==div>ul>li.odds</li>
+			<li class="evens" title="hy_jp">火影忍者==div>ul>li.evens</li>
+			<li class="odds" title="ss_jp">死神==div>ul>li.odds</li>
+			<li class="evens" title="yj_jp">妖精的尾巴==div>ul>li.evens</li>
+			<li class="odds" title="yh_jp">银魂==div>ul>li.odds</li>
+			<li class="evens" title="hm_da">黑猫警长==div>ul>li.evens</li>
+			<li class="odds" title="xl_ds">仙履奇缘==div>ul>li.odds</li>
+		</ul>
+	</div>
+	<div title="test">
+	==div title="test"
+	</div>
+</body>
+</html>

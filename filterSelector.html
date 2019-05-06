@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>属性选择器</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+	<table width="200" border="1" style="margin:0px auto; width: 1000px; font-size: 20px">
+  <caption>
+    jquery过滤选择器
+  </caption>
+  <tbody>
+    <tr>
+      <td>选择某元素A后的第一个B元素</td>
+      <td>选择器A 选择器B:first</td>
+	  <td><input type="button" id="bt1" value="ul.filmsecond li:first，点击背景变红"/></td>
+    </tr>
+    <tr>
+      <td>选择某元素A后的最后一个B元素</td>
+      <td>选择器A 选择器B:last</td>
+	  <td><input type="button" id="bt2" value="ul.filmsecond li:last，点击背景变蓝"/></td>
+    </tr>
+    <tr>
+      <td>选择某元素A后不为B选择器所选元素的C元素</td>
+      <td>选择器A 选择器C:not(选择器B)</td>
+	  <td><input type="button" id="bt3" value="ul.filmsecond li:not(.evens),点击背景变黄"/></td>
+    </tr>
+    <tr>
+      <td>选择某元素A后索引为奇数的元素A</td>
+      <td>选择器A 选择器B:odd</td>
+	  <td><input type="button" id="bt4" value="ul.filmfirst li:odd，背景变绿"/></td>
+    </tr>
+	  <tr>
+      <td>选择某元素A后索引为偶数的元素A</td>
+      <td>选择器A 选择器B:even</td>
+	  <td><input type="button" id="bt5" value="ul.filmfirst li:even,背景变橙"/></td>
+    </tr>
+	  <tr>
+      <td>选择某元素A后索引为n的元素A</td>
+      <td>选择器A 选择器B:eq(n)</td>
+	  <td><input type="button" id="bt6" value="ul.filmfirst li:eq(3)，背景变紫"/></td>
+    </tr>
+	  </tr>
+	  <tr>
+      <td>选择某元素A后索引大于n的元素A</td>
+      <td>选择器A 选择器B:gt(n)</td>
+	  <td><input type="button" id="bt7" value="ul.filmfirst li:gt(3),背景变antiquewhite"/></td>
+    </tr>
+	</tr>
+	  <tr>
+      <td>选择某元素A后索引小于n的元素A</td>
+      <td>选择器A 选择器B:lt(n)</td>
+	  <td><input type="button" id="bt8" value="ul.filmfirst li:lt(3)，背景颜色变aliceblue"/></td>
+    </tr>
+	
+  </tbody>
+
+</table>
+
+<br>
+<br>
+<h1>示例</h1>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#bt1").click(function(){
+		$("ul.filmsecond li:first").css("background-color","red");	
+		})
+		$("#bt2").click(function(){
+		$("ul.filmsecond li:last").css("background-color","blue");	
+		})
+		$("#bt3").click(function(){
+		$("ul.filmsecond li:not(.evens)").css("background-color","yellow");
+		})
+	    $("#bt4").click(function(){
+		$("ul.filmfirst li:odd").css("background-color","green");
+		})
+		$("#bt5").click(function(){
+		$("ul.filmfirst li:even").css("background-color","orange");
+		})
+		$("#bt6").click(function(){
+		$("ul.filmfirst li:eq(3)").css("background-color","purple");
+		})
+		$("#bt7").click(function(){
+		$("ul.filmfirst li:gt(3)").css("background-color","antiquewhite");
+		})
+		$("#bt8").click(function(){
+		$("ul.filmfirst li:lt(3)").css("background-color","aliceblue");
+		})
+	})
+</script>
+
+<h2>网络小说</h2>
+<ul class="filmfirst">
+  <li>王妃不好当</li>
+  <li>致命交易</li>
+  <li class="three">迦兰寺</li>
+  <li>逆天之宠</li>
+  <li>交错时光的爱恋</li>
+  <li>张震鬼故事</li>
+  <li>第一次亲密接触</li>
+</ul>
+
+<ul class="filmsecond">
+<li class="odds"  title="kn_jp">名侦探柯南</li>
+<li class="evens" title="hy_jp">火影忍者</li>
+<li class="odds" title="ss_jp">死神</li>
+<li class="evens" title="yj_jp">妖精的尾巴</li>
+<li class="odds" title="yh_jp">银魂</li>
+<li class="evens" title="hm_da">黑猫警长</li>
+<li class="odds" title="xl_ds">仙履奇缘</li>
+</ul>
+	
+</body>
+</html>

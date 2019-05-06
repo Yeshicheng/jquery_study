@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>基础选择器</title>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<style>
+		.redbackground{background-color: red}
+	</style>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		
+		//标签选择器
+		$("div").css("border","2px solid black").css("color","blue");
+		//类选择器
+		$(".selectortest").css("background-color","yellow")
+		//ID选择器
+		$("#one").css("border-radius","10px")
+		//交集选择器
+		$("header.selectortest").css({"font-size":"38px","font-weight":"bold"})
+		//并集选择器
+		$("#three,#two").addClass("redbackground")
+	})
+		
+		
+	</script>
+</head>
+
+<body>
+	<header>jquery选择器——基础选择器</header>
+	<h3>整理</h3>
+	<h4>标签选择器</h4>
+	<li>格式：$("标签名")</li>
+	<li>PS:	$("div").css("border","2px solid black").css("color","blue");
+</li>
+	<h4>类选择器</h4>
+	<li>格式：$(".类名")</li>
+	<li>PS:	$(".selectortest").css("background-color","yellow")
+</li>
+	<h4>ID选择器</h4>
+	<li>格式：$("#ID")</li>
+	<li>PS:	$("#one").css("border-radius","10px")
+</li>
+	<h4>交集选择器</h4>
+	<li>格式：$("标签名.类名")==表示选中同时满足标签选择器和类选择器条件的对象</li>
+	<li>PS:	$("header.selectortest").css({"font-size":"38px","font-weight":"bold"})</li>
+	<h4>并集选择器</h4>
+	<li>格式：$("选择器1,选择器2,...,选择器n")==表示同时选中选择器所选择的对象</li>
+	<li>PS:	$("#three,#two").addClass("redbackground")
+</li>
+	<br>
+	<div style="background-color: aliceblue">
+	<h3>备忘：JQuery设置css的三种方式</h3>
+	<h4>连缀写法</h4>
+	<li>$("#one").css("border","1px solid green").css("position","relative").css("left","20px").css("top","100px");</li>
+	<h4>addClass添加以定义好的类选择器</h4>
+	<li>$("#one").addClass("dongtaichange");</li>
+	<h4>“名/值对”对象方式</h4>
+	<li> $("#one").css({"border":"1px solid red","position":"relative","left":"20px","top":"100px"});</li>
+	</div>
+	<br>
+<br>
+	<h3>具体示例</h3>
+	<header class="selectortest">class="selectortest"的div容器</header>
+	<div id="one" class="one"><p>1111111111111111</p></div>
+	<div id="two" class="two"><p>2222222222222222</p></div>
+	<div id="three" class="three"><p>3333333333333333</p></div>
+	<div id="one" class="selectortest">1111111,class="selectortest"的div容器</div>	
+	<br>
+<br>
+<br>
+
+</body>
+</html>
