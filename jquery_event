@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery基础事件</title>
+	<style>
+		.one{background-color:red}
+		.two{background-color:aqua}
+		.bgblue{background-color: blue}
+		.bgred{background-color: red}
+		.bgyellow{background-color: yellow}
+
+		
+		.focus_text{background-color:aliceblue}
+	</style>
+	
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			//mouseover事件
+/*			$("#mouseoverdemo").mouseover(
+			function(){
+				console.log("鼠标滑过");
+				//$("#mouseshow").html("鼠标已经移入");
+			}
+			)
+			//mouseout事件
+			$("#mouseoverdemo").mouseout(
+			function(){
+				console.log("鼠标滑出");
+				$("#mouseshow").html("鼠标已经移开");
+			}
+			)*/
+			//使用连缀的写法
+			$("#mouseoverdemo").mouseover(
+			function(){
+				$("#mouseshow").html("鼠标已经移入");
+				$(this).addClass("two");
+				//alert("111");
+			}
+			).mouseout(
+			function(){
+				$("#mouseshow").html("鼠标已经移开");
+				$(this).removeClass("two");
+			}
+			);
+			
+			//键盘事件keydown,keypress,keyup
+			$(document).keydown(function(event){
+				console.log(event.keyCode);
+				var key = event.keyCode;
+				//.charCodeAt()将一个字符转换为对应的ASCII码整形
+				//String.fromCharCode(key)将一个整形转换为对应的字符
+				$("#keyshow").append(String.fromCharCode(key)+" ");
+			});
+			
+			//获取焦点事件focus,失去焦点事件blur
+			$("#focusevent").focus(
+			function(){
+				$(this).addClass("focus_text");
+				$("#focusshow").html("聚焦到该文本框");
+			}
+			).blur(
+			function(){
+				$(this).removeClass("focus_text");
+				$("#focusshow").html("离开到该文本框");
+			}
+			);
+			
+			//复合式见hover(function1，function2),第一个参数是mouseover事件函数，第二个参数是mouseout事件函数
+			$("#hoverdemo").hover(
+			function(){
+				$(this).addClass("bgblue");
+			}
+				,
+			function(){
+				
+				$(this).removeClass("bgblue");
+			}
+			);
+			
+			//toggle鼠标点击事件
+			$("#toggledemo").toggle(function(){
+				$("body").css("background-color","green");},
+				function(){
+				$("body").css("background-color","red");},
+				function(){
+				$("body").css("background-color","yellow");}
+			  );
+			
+			//事件冒泡：事件会按照执行子元素的事件，然后在执行父元素的事件
+			//组织事件冒泡的方法
+			//1.return false：在事件处理过程中，可以阻止默认时间和冒泡事件
+			//2.event.preventDefault()在时间的处理过程中组织默认事件但是允许冒泡
+			//3.event.stoppropagation()在时间处理过程中，可以阻止冒泡但是允许默认事件
+			
+			//$(document).on（‘任何时间名’,'事件源','事件函数')方法
+		})
+		
+	</script>
+</head>
+
+<body>
+
+	<span class="one" id="mouseoverdemo">鼠标悬停触发事件</span>
+	<div id="mouseshow"></div>
+	<div id="keyevent">键盘事件，将键盘输入打印在下方容器中</div>
+	<div id="keyshow"></div>
+	<form action="#">
+	<input type="text" id="focusevent"><span id="focusshow">111</span>
+	</form>
+	<div style="width: 100px; height:100px" id="hoverdemo">hover事件</div>
+	<button id="toggledemo">toggle</button>
+	<div id="toggleshow" style="width:100px;height: 100px"></div>
+</body>
+</html>
